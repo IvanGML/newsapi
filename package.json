@@ -1,0 +1,29 @@
+{
+  "name": "newsapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server",
+    "build": "webpack --mode=development",
+    "test": "test"
+  },
+  "author": "Ivan Somov",
+  "license": "ISC",
+  "dependencies": {
+    "webpack-dev-server": "^3.1.10"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-es2017": "^7.0.0-beta.53",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.2",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "lodash": "^4.17.10",
+    "webpack": "^4.17.2",
+    "webpack-cli": "^3.1.0"
+  }
+}

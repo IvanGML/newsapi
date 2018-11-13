@@ -15,5 +15,6 @@ export const fetchArticles = ({ country, sources, keyWord, renderArticles }) => 
     .then(response => response.json())
     .then(data => {
       renderArticles(data);
-    });
+    })
+    .catch(error => console.log(error.message));
 }

@@ -15,5 +15,6 @@ export const fetchNewsSources = renderHtml => {
       renderHtml(data);
       toggleTabs();
       newsItemClickHandler();
-    });
+    })
+    .catch(error => console.log(error.message));
 }

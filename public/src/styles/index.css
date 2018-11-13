@@ -33,6 +33,9 @@ html, body {
   background-color: #fff;
   color: #060f2c;
   width: 100%;
+  margin-top: 15px;
+  transition: .3s;
+  opacity: 0;
   z-index: 1;
 }
 
@@ -43,6 +46,7 @@ html, body {
 .heading-title {
   text-transform: uppercase;
   font-weight: normal;
+  cursor: pointer;
 }
 
 .controls {
@@ -52,10 +56,14 @@ html, body {
   align-items: center;
 }
 
-.input {
+.search-input--wrapper {
+  display: flex;
+}
+
+.input,
+.search-button {
   display: inline-block;
   padding: 20px 50px;
-  border-radius: 30px;
   text-align: center;
   width: 500px;
   font-weight: bold;
@@ -63,6 +71,19 @@ html, body {
   border: none;
   outline: transparent;
   text-transform: uppercase;
+}
+
+.input {
+  padding-right: 15px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.search-button {
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  width: auto;
+  background-color: #3ab2bd;
 }
 
 .button-wrapper {
@@ -87,6 +108,7 @@ html, body {
   position: fixed;
   top: 55%;
   left: 50%;
+  transform: translateX(-50%);
   width: 50px;
   transition: .3s;
   opacity: 0;
@@ -97,6 +119,10 @@ html, body {
   border-bottom: 1px solid gray;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.article:last-child {
+  border: none;
 }
 
 .article-content-wrapper {
@@ -152,12 +178,17 @@ html, body {
   margin-bottom: 0;
   margin-top: auto;
   width: 100%;
+  position: relative;
 }
 
 .footer-decor {
   display: inline-block;
   height: 1px;
-  width: 100%;
+  position: absolute;
+  top: 0;
+  width: 50%;
+  left: 50%;
+  transform: translateX(-50%);
   background: linear-gradient(90deg,rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
 }
 
@@ -192,7 +223,7 @@ html, body {
   cursor: pointer;
   display: flex;
   justify-content: center;
-  padding: 0.5rem 0;
+  padding: 15px 0;
   position: relative;
   width: 50%;
   margin: 0 .5rem;
@@ -252,10 +283,16 @@ html, body {
 }
 
 @media (max-width: 768px) {
+  .input, .search-button {
+    padding: 10px 20px;
+    width: 210px;
+    font-size: 14px;
+  }
   .input {
-    padding: 10px 25px;
-    width: 300px;
-    font-size: 1em;
+    padding-right: 5px;
+  }
+  .search-button {
+    width: auto;
   }
   .button-wrapper {
     flex-direction: column;

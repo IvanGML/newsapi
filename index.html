@@ -14,11 +14,14 @@
     <div class="wrapper">
         <div class="non-article-wrapper">
             <div class="heading">
-                <h1 class="heading-title">News Portal</h1>
+                <h1 class="heading-title" id="heading-title">News Portal</h1>
                 <p class="heading-slogan">Are you missing what's important?</p>
             </div>
             <div class="controls">
-                <input type="text" class="input" id="search-input" placeholder="type to find news">
+                <div class="search-input--wrapper">
+                    <input type="text" class="input" id="search-input" placeholder="type to find news">
+                    <button class="search-button" id="search-button">go</button>
+                </div>
                 <div class="button-wrapper">
                     <button id="load-news-sources" class="button" id="categories">
                         News sources
@@ -28,7 +31,7 @@
                     </button>
                 </div>
             </div>
-            <div class="spinner-wrapper">
+            <div class="spinner-wrapper" id="spinner-wrapper">
                 <div class="spinner">
                     <div class="dot1"></div>
                     <div class="dot2"></div>
@@ -42,7 +45,7 @@
 
         <div class="footer-info">
             <span class="footer-decor"></span>
-            <a href="https://newsapi.org/" class="link" target="_blank">newsapi.org</a>
+            <a href="https://newsapi.org/" class="link" target="_blank">powered by NewsAPI.org</a>
         </div>
     </div>
     <div id="root"></div>

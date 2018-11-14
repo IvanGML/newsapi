@@ -4,7 +4,6 @@ import { newsSourcesContainer, articlesContainer, searchInput, searchButton, hea
 
 export default class renderNews {
   constructor() {
-    this.news = [];
     document.addEventListener('DOMContentLoaded', this.initialize.bind(this));
   }
 

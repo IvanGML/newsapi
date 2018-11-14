@@ -14,8 +14,15 @@ const showProloader = () => {
   }, 1000)
 }
 
+const formatDate = notFormatedDate => {
+  const date = new Date(notFormatedDate);
+  const formatter = new Intl.DateTimeFormat("ru");
+  return formatter.format(date);
+}
+
 export {
   removeComas,
   formatTextForRequest,
-  showProloader
+  showProloader,
+  formatDate
 }

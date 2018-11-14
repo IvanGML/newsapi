@@ -1,5 +1,4 @@
-import { fetchArticles } from '../requests/fetchArticles';
-import { renderArticles } from '../components/render';
+import { renderArticles } from '../renderArticles';
 
 export const newsItemClickHandler = () => {
   const resultItems = [...document.querySelectorAll('.result-item')];
@@ -7,10 +6,9 @@ export const newsItemClickHandler = () => {
     item.addEventListener('click', function() {
       let sources = this.getAttribute('title');
       if (sources.length > 2 && sources !== 'rt') {
-        fetchArticles({ sources, renderArticles});
+        renderArticles({ sources });
       } else {
-        console.log(sources);
-        fetchArticles({ country: sources, renderArticles});
+        renderArticles({ country: sources });
       }
     })
   })

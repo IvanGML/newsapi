@@ -1,5 +1,5 @@
-import { countries } from '../utils/staticData';
-import { removeComas } from '../utils/helpers';
+import { countries } from '../stuff/staticData';
+import { removeComas } from '../stuff/helpers';
 
 export const newsSourceItem = (title, id = title) => {
   return (

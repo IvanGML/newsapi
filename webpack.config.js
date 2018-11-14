@@ -10,21 +10,7 @@ module.exports = {
     mode: 'development',
     watch: true,
     devtool: 'cheap-module-eval-source-map',
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                exclude: /node-modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/env']
-                    }
-                }
-
-            }
-        ]
-    },
+    module: {},
     devServer: {
         contentBase: path.join(__dirname, './'),
         compress: true,

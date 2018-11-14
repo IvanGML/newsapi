@@ -1,20 +1,16 @@
-import { showProloader } from "../utils/helpers";
+import { API_KEY } from '../stuff/constants';
 
-export const fetchArticles = ({ country, sources, keyWord, renderArticles }) => {
+async function fetchArticles({country, sources, keyWord}) {
   let url = '';
 
-  if (sources) url = `https://newsapi.org/v2/top-headlines?sources=${sources.trim()}&apiKey=f792cbef6ef14ad0b093ab88c321ea24`;
-  if (country) url = `https://newsapi.org/v2/top-headlines?country=${country.trim()}&apiKey=f792cbef6ef14ad0b093ab88c321ea24`;
-  if (keyWord) url = `https://newsapi.org/v2/everything?q=${keyWord.trim()}&apiKey=f792cbef6ef14ad0b093ab88c321ea24`;
+  if (sources) url = `https://newsapi.org/v2/top-headlines?sources=${sources.trim()}&apiKey=${API_KEY}`;
+  if (country) url = `https://newsapi.org/v2/top-headlines?country=${country.trim()}&apiKey=${API_KEY}`;
+  if (keyWord) url = `https://newsapi.org/v2/everything?q=${keyWord.trim()}&apiKey=${API_KEY}`;
 
   let req = new Request(url);
-  
-  showProloader();
-  
-  fetch(req)
+
+  return await fetch(req)
     .then(response => response.json())
-    .then(data => {
-      renderArticles(data);
-    })
-    .catch(error => console.log(error.message));
 }
+
+export { fetchArticles };

@@ -1,3 +1,3 @@
-import { initialize } from './initialize';
+import initialize from './initialize';
 
-initialize();
+new initialize();

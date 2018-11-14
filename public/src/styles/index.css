@@ -18,7 +18,7 @@ html, body {
   align-items: center;
   width: 100%;
   min-height: 100%;
-  background: linear-gradient(302deg, #060f2c, #3e3a6b);
+  background: linear-gradient(270deg, #060f2c, #3e3a6b);
 }
 
 .non-article-wrapper {

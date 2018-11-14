@@ -1,11 +1,11 @@
 import { showProloader } from "../stuff/helpers";
 import { articleComponent } from "./article";
-import { fetchArticles } from '../requests/fetchArticles';
+import { fetchData } from '../requests/fetchData';
 
-export const renderArticles = ({ country, sources, keyWord, renderHtml }) => {
+export const renderArticles = ({ country, sources, keyWord }) => {
   let loadingContainer = document.getElementById('result-list');
   showProloader();
-  fetchArticles({country, sources, keyWord})
+  fetchData({country, sources, keyWord})
     .then(data => {
       let { articles } = data;
       let articlesList = articles.map(item => articleComponent(item));

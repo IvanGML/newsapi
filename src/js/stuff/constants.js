@@ -5,6 +5,8 @@ const searchInput = document.getElementById('search-input');
 const searchButton = document.getElementById('search-button');
 const headingTitle = document.getElementById('heading-title');
 const resultList = document.getElementById('result-list');
+const spinner = document.getElementById('spinner-wrapper');
+const result = document.getElementById('result-list');
 
 // API KEY
 const API_KEY = 'f792cbef6ef14ad0b093ab88c321ea24';
@@ -16,5 +18,7 @@ export {
   searchButton, 
   headingTitle, 
   resultList,
+  spinner,
+  result,
   API_KEY
 }

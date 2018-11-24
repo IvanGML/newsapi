@@ -1,16 +1,17 @@
+import { removeClassesFrom, getElement } from '../../stuff/helpers';
+
 export const toggleTabs = () => {
-  const tabs = [...document.querySelectorAll('.news-tab')];
-  const removeSelected = () => tabs.forEach(item => item.classList.remove('selected'));
+  const publishers = getElement('#publishers-info');
+  const countries = getElement('#countries-info');
+  const tabs = [...getElement('.news-tab')];
   const switchContent = () => {
-    let publishers = document.getElementById('publishers-info');
-    let countries = document.getElementById('countries-info');
     countries.classList.toggle('not-display');
     publishers.classList.toggle('not-display');
   }
 
   tabs.forEach(elem => {
-    elem.addEventListener("click", e => {
-      removeSelected();
+    elem.addEventListener("click", () => {
+      removeClassesFrom(tabs, 'selected');
       switchContent();
       elem.classList.add('selected');
     });

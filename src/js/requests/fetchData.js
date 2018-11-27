@@ -1,11 +1,10 @@
-import { API_KEY } from '../stuff/constants';
+async function request({country, sources, keyWord, apiKey}) {
+  console.log(country, sources, keyWord, apiKey);
+  let url = `https://newsapi.org/v2/sources?apiKey=${apiKey}`;
 
-async function fetchData({country, sources, keyWord}) {
-  let url = `https://newsapi.org/v2/sources?apiKey=${API_KEY}`;
-
-  if (sources) url = `https://newsapi.org/v2/top-headlines?sources=${sources.trim()}&apiKey=${API_KEY}`;
-  if (country) url = `https://newsapi.org/v2/top-headlines?country=${country.trim()}&apiKey=${API_KEY}`;
-  if (keyWord) url = `https://newsapi.org/v2/everything?q=${keyWord.trim()}&apiKey=${API_KEY}`;
+  if (sources) url = `https://newsapi.org/v2/top-headlines?sources=${sources.trim()}&apiKey=${apiKey}`;
+  if (country) url = `https://newsapi.org/v2/top-headlines?country=${country.trim()}&apiKey=${apiKey}`;
+  if (keyWord) url = `https://newsapi.org/v2/everything?q=${keyWord.trim()}&apiKey=${apiKey}`;
 
   let request = new Request(url);
 
@@ -14,4 +13,4 @@ async function fetchData({country, sources, keyWord}) {
     .catch(error => console.log(error.message));
 }
 
-export { fetchData };
+export default request;

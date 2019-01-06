@@ -7,7 +7,7 @@ export const articleComponent = ({ title, author, publishedAt, description, cont
     description = description || '',
     content = content || 'Content is not specified',
     url = url || '#',
-    urlToImage = urlToImage || 'public/src/img/default-image.png'
+    urlToImage = urlToImage || './src/img/default-image.png'
     let imgAlt = description.split(' ').slice(0, 3).join(' ');
     publishedAt = publishedAt === 'Date in not specified' ? `Published at ${publishedAt}` : `Published at ${formatDate(publishedAt)}`;
     return (

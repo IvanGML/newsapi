@@ -1,3 +1,5 @@
+import { showWarning } from '../stuff/helpers';
+
 async function request({country, sources, keyWord, apiKey}) {
   console.log(country, sources, keyWord, apiKey);
   let url = `https://newsapi.org/v2/sources?apiKey=${apiKey}`;
@@ -10,7 +12,10 @@ async function request({country, sources, keyWord, apiKey}) {
 
   return await fetch(request)
     .then(response => response.json())
-    .catch(error => console.log(error.message));
+    .catch(error => {
+      console.log(error.message);
+      showWarning();
+    });
 }
 
 export default request;

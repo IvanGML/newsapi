@@ -17,7 +17,7 @@ const showPreloader = () => {
     spinner.style.opacity = 0;
     result.style.opacity = 1;
   }, 1000)
-}
+};
 
 const removeClassesFrom = (elem, className) => elem.forEach(item => item.classList.remove(className));
 
@@ -25,7 +25,13 @@ const formatDate = notFormatedDate => {
   const date = new Date(notFormatedDate);
   const formatter = new Intl.DateTimeFormat("ru");
   return formatter.format(date);
-}
+};
+
+const showWarning = () => {
+  import(/* webpackPrefetch: true */'toastr').then(toastr => {
+    toastr.error('Something going wrong. Please, have a look in console.');
+  })
+};
 
 export {
   removeComas,
@@ -34,4 +40,5 @@ export {
   formatDate,
   removeClassesFrom,
   getElement,
+  showWarning,
 }

@@ -7,7 +7,7 @@ const removeComas = list => list.toString().split(',').join('');
 
 const formatTextForRequest = text => text.split(' ').join('-');
 
-const showProloader = () => {
+const showPreloader = () => {
   let spinner = getElement('#spinner-wrapper');
   let result = getElement('#result-list');
   window.scrollTo(0, 0);
@@ -30,7 +30,7 @@ const formatDate = notFormatedDate => {
 export {
   removeComas,
   formatTextForRequest,
-  showProloader,
+  showPreloader,
   formatDate,
   removeClassesFrom,
   getElement,

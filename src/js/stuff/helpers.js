@@ -13,7 +13,7 @@ const showPreloader = () => {
   window.scrollTo(0, 0);
   spinner.style.opacity = 1;
   result.style.opacity = 0;
-  setTimeout(()=>{
+  setTimeout(() => {
     spinner.style.opacity = 0;
     result.style.opacity = 1;
   }, 1000)
@@ -27,11 +27,21 @@ const formatDate = notFormatedDate => {
   return formatter.format(date);
 };
 
-const showWarning = () => {
-  import(/* webpackPrefetch: true */'toastr').then(toastr => {
-    toastr.error('Something going wrong. Please, have a look in console.');
-  })
-};
+class Warning {
+  constructor() {
+    if (typeof Warning.instance === 'object') {
+      return Warning.instance;
+    }
+    Warning.instance = this;
+    return this;
+  }
+
+  showWarning() {
+    import('toastr').then(toastr => {
+      toastr.error('Something going wrong. Please, have a look in console.');
+    })
+  }
+}
 
 export {
   removeComas,
@@ -40,5 +50,5 @@ export {
   formatDate,
   removeClassesFrom,
   getElement,
-  showWarning,
+  Warning,
 }

@@ -1,4 +1,4 @@
-import { showWarning } from '../stuff/helpers';
+import { Warning } from '../stuff/helpers';
 
 async function request({country, sources, keyWord, apiKey}) {
   console.log(country, sources, keyWord, apiKey);
@@ -14,7 +14,8 @@ async function request({country, sources, keyWord, apiKey}) {
     .then(response => response.json())
     .catch(error => {
       console.log(error.message);
-      showWarning();
+      const warning = new Warning();
+      warning.showWarning();
     });
 }
 

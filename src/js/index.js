@@ -13,5 +13,3 @@ const renderer = new Renderer();
 const app = new Initializer(renderer, dataService);
 
 app.initialize();
-
-console.log('init');

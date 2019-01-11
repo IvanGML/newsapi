@@ -1,15 +1,19 @@
-import DataService from './API/DataService';
-import Renderer from './Renderer';
-import Initializer from './Initializer';
-import { API_KEY as apiKey } from './stuff/constants';
+import reducer from './model/reducer';
+import Store, { initialState } from './model/store';
+import { newsSourcesContainer, articlesContainer, searchInput, searchButton, headingTitle, resultList, API_KEY as apiKey } from './stuff/constants';
+import { articleComponent } from "./view/article";
+import request from './services/fetchData';
+import { showPreloader } from './stuff/helpers';
 
-const dataService = new DataService({
-  type: 'fetch',
-  apiKey,
+const store = new Store(reducer, initialState);
+store.subscribe(()=>console.log(store.state));
+
+articlesContainer.addEventListener('click', () => {
+  request({apiKey, country: 'us'})
+    .then(payload => store.update({type: 'GET_NEWS', payload }))
+    .then(()=>{
+      showPreloader();
+      let articlesList = store.state.news.articles.map(item => articleComponent(item));
+      resultList.innerHTML = articlesList;
+    })
 });
-
-const renderer = new Renderer();
-
-const app = new Initializer(renderer, dataService);
-
-app.initialize();

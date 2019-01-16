@@ -13,11 +13,11 @@ const showPreloader = () => {
   window.scrollTo(0, 0);
   spinner.style.opacity = 1;
   result.style.opacity = 0;
-  setTimeout(()=>{
+  setTimeout(() => {
     spinner.style.opacity = 0;
     result.style.opacity = 1;
   }, 1000)
-}
+};
 
 const removeClassesFrom = (elem, className) => elem.forEach(item => item.classList.remove(className));
 
@@ -25,6 +25,22 @@ const formatDate = notFormatedDate => {
   const date = new Date(notFormatedDate);
   const formatter = new Intl.DateTimeFormat("ru");
   return formatter.format(date);
+};
+
+class Warning {
+  constructor() {
+    if (typeof Warning.instance === 'object') {
+      return Warning.instance;
+    }
+    Warning.instance = this;
+    return this;
+  }
+
+  showWarning() {
+    import('toastr').then(toastr => {
+      toastr.error('Something going wrong. Please, have a look in console.');
+    })
+  }
 }
 
 export {
@@ -34,4 +50,5 @@ export {
   formatDate,
   removeClassesFrom,
   getElement,
+  Warning,
 }

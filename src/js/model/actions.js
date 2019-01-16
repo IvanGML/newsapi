@@ -1,18 +1,8 @@
-const getSources = sources => {
-  return {
-    type: 'GET_SOURCES',
-    payload: sources
-  }
-}
+import { API_KEY as apiKey } from '../stuff/constants';
 
-const getNews = news => {
-  return {
-    type: 'GET_NEWS',
-    payload: news
-  }
-}
-
-export {
-  getNews,
-  getSources,
+export default async function fetchInfo({ request, country, sources, keyWord }) {
+  request = request || (() => { });
+  let type = country ? 'GET_NEWS' : 'GET_SOURCES';
+  return await request({ apiKey, country, sources, keyWord })
+    .then(payload => ({ type, payload }))
 }

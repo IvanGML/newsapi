@@ -3,6 +3,18 @@ const getElement = selector => {
   return elementsList.length > 1 ? elementsList : elementsList[0];
 };
 
+const isEmpty = obj => {
+  for (var key in obj) {
+    return false;
+  }
+  return true;
+};
+
+const handleImputKeyDown = e => {
+    if (e.keyCode === 27) e.target.value = '';
+    else return e.target.value;
+};
+
 const removeComas = list => list.toString().split(',').join('');
 
 const formatTextForRequest = text => text.split(' ').join('-');
@@ -34,14 +46,14 @@ class Warning {
     }
     Warning.instance = this;
     return this;
-  }
+  };
 
   showWarning() {
     import('toastr').then(toastr => {
       toastr.error('Something going wrong. Please, have a look in console.');
     })
-  }
-}
+  };
+};
 
 export {
   removeComas,
@@ -51,4 +63,6 @@ export {
   removeClassesFrom,
   getElement,
   Warning,
-}
+  isEmpty,
+  handleImputKeyDown,
+};

@@ -1,0 +1,9 @@
+extends  header
+
+block list
+    if news
+        ul.news-list
+            for post in news
+                li.news-list__item= post.id
+    else
+        p there are no one news

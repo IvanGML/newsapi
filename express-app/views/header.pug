@@ -1,0 +1,14 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        title= title
+        link(rel='stylesheet', href='/style.css')
+    body
+        h1(class='page-discription')= title
+        p(class='page-discription') hello! you can see list with ids of news below.
+        p(class='page-discription') after http://localhost:4000/ you can put 'news' and get full list of news
+        p(class='page-discription') also you can put any id listed below and get this post (put it after http://localhost:4000/news)
+        p(class='page-discription')
+            b thanks a lot!
+        block list

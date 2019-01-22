@@ -2,8 +2,11 @@ const express = require('express');
 const news = require('./data/news.json');
 const morgan = require('morgan');
 const path = require('path');
+const bodyParser = require('body-parser');
 
 const app = express();
+
+app.use(bodyParser());
 
 app.engine('pug', require('pug').__express);
 
@@ -35,13 +38,25 @@ app.get('/news', (req, res) => {
     res.json(news);
 });
 
-app.get('/news/:id', (req, res) => {
-    let newsList = news.find(item => item.id == req.params.id);
-    if(!newsList) return res.status(404).send(`
-        <h1 style='text-align: center'>Page with id ${req.params.id} not found ¯\\_(ツ)_/¯ </h1>`
-    );
-    res.json(newsList);
-});
+app
+    .get('/news/:id', (req, res) => {
+        let newsList = news.find(item => item.id == req.params.id);
+        if(!newsList) return res.status(404).send(`
+            <h1 style='text-align: center'>Page with id ${req.params.id} not found ¯\\_(ツ)_/¯ </h1>`
+        );
+        res.json(newsList);
+    })
+    .put('/news/:id', (req, res) => {
+        let post = news.find(item => item.id == req.params.id);
+        let updatedCustomer = req.body;
+        if(post != null) {
+            post = {...post, ...updatedCustomer};
+            console.log("--->Update Successfully, customers: \n" + JSON.stringify(post, null, 4))
+            res.end("Update Successfully! \n" + JSON.stringify(post, null, 4));
+        } else {
+            res.end("Don't Exist Customer:\n:" + JSON.stringify(updatedCustomer, null, 4));
+        }
+    });
 
 let port = +(process.env.PORT || 4000);
 

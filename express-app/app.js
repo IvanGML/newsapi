@@ -1,5 +1,4 @@
 const express = require('express');
-const news = require('./data/news.json');
 const routes = require('./routes');
 const midlewares = require('./midlewares');
 
@@ -9,7 +8,7 @@ midlewares(app);
 
 app.use(express.static(__dirname + '/public'));
 
-routes(app, news);
+routes(app);
 
 app.use((err, req, res) => {
     res.status(500);

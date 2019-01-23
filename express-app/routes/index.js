@@ -1,22 +1,8 @@
 const handlers = require('../handlers');
-const news = require('../data/news');
 
 const routes = (app) => {
-    app.get('/', (req, res) => {
-        // imitation of error
-        // throw new Error('woops');
-        res.render('index',
-            {
-                title: 'Local news server',
-                news,
-            }
-        );
-    });
-
-    app.get('/news', (req, res) => {
-        res.json(news);
-    });
-
+    app.get('/', handlers.getHomePagaData);
+    app.get('/news', handlers.getData);
     app
         .get('/news/:id', handlers.getPostByID)
         .post('/news/:id', handlers.setPost)

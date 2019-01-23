@@ -2,6 +2,19 @@ const news = require('../data/news');
 const { findById } = require('../helpers');
 
 const handlers = {
+    getHomePagaData: (req, res) => {
+        // imitation of error
+        // throw new Error('woops');
+        res.render('index',
+            {
+                title: 'Local news server',
+                news,
+            }
+        );
+    },
+    getData: (req, res) => {
+        res.json(news);
+    },
     getPostByID: (req, res) => {
         let newsList = findById(news, req.params.id);
         if(!newsList) return res.status(404).send(`

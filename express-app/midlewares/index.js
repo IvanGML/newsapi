@@ -4,7 +4,7 @@ const path = require('path');
 const rfs = require('rotating-file-stream');
 const express = require('express');
 
-const middleware = app => {
+const middlewareContainer = app => {
     app.use(express.static(__dirname + '/../public'));
     app.use(bodyParser());
     app.engine('pug', require('pug').__express);
@@ -17,13 +17,6 @@ const middleware = app => {
     });
     // setup the third-party logger
     app.use(morgan('combined', { stream: accessLogStream }));
-
-    // custom logger
-    // app.use((req, res, next) => {
-    //     let date = new Date(Date.now()).toLocaleString("en-US");
-    //     console.log(`${date} === ${req.method} === ${req.url}`);
-    //     next();
-    // });
 };
 
-module.exports = middleware;
+module.exports = middlewareContainer;

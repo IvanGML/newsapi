@@ -1,10 +1,10 @@
 const express = require('express');
 const routes = require('./routes');
-const middleware = require('./midlewares');
+const middlewareContainer = require('./midlewares');
 
 const app = express();
 
-middleware(app);
+middlewareContainer(app);
 routes(app);
 
 let port = +(process.env.PORT || 4000);

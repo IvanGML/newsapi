@@ -8,7 +8,7 @@ const searchButton = getElement('#search-button');
 const headingTitle = getElement('#heading-title');
 const resultList = getElement('#result-list');
 
-// API KEY
+// api KEY
 const API_KEY = 'f792cbef6ef14ad0b093ab88c321ea24';
 
 export {

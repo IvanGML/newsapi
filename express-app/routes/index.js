@@ -7,7 +7,8 @@ const routes = (app) => {
     app.post('/newsbigset', handlers.setBigData);
     app
         .get('/news/:id', handlers.getPostByID)
-        .delete('/news/:id', handlers.deletePost);
+        .delete('/news/:id', handlers.deletePost)
+        .put('/news/:id', handlers.udatePostByID);
     //     // in case of any route get error
     //     .use((err, req, res) => {
     //         res.status(500);

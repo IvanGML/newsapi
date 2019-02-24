@@ -1,0 +1,84 @@
+:host {
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	align-items: center;
+}
+
+.search-input--wrapper {
+	display: flex;
+}
+
+.input,
+.search-button {
+	color: #22244b;
+	display: inline-block;
+	padding: 20px 50px;
+	text-align: center;
+	width: 500px;
+	font-weight: bold;
+	font-size: 1.5em;
+	border: none;
+	outline: transparent;
+	text-transform: uppercase;
+}
+
+.input {
+	padding-right: 15px;
+	border-top-left-radius: 30px;
+	border-bottom-left-radius: 30px;
+}
+
+.search-button {
+	border-top-right-radius: 30px;
+	border-bottom-right-radius: 30px;
+	width: auto;
+	background-color: #3ab2bd;
+	cursor: pointer;
+}
+
+.wrapper-button {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.wrapper-button-inner {
+	@extend .wrapper-button;
+	width: auto;
+}
+
+.button,
+.source-selector {
+	text-transform: uppercase;
+	font-size: 14px;
+	margin: 15px 0;
+	background-color: #3ab2bd;
+	border: none;
+	font-weight: bold;
+	color: #22244b;
+	cursor: pointer;
+	height: 40px;
+	max-height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align-last:center;
+	flex-basis: 300px;
+}
+
+.button-add {
+	@extend .button;
+	background-color: #bd5d48;
+}
+
+.wrapper-checkbox {
+	@extend .button;
+	background-color: transparent;
+	margin-right: 20px;
+	color: #ffffff;
+}
+
+.input-checkbox{
+	margin-right: 10px;
+}

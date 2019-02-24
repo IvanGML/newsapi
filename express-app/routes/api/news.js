@@ -3,30 +3,21 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const NewsPostSchema = new Schema({
-    name: {
-        type: String,
-        required: true,
+    source: {
+        id: {
+            type: String,
+        },
+        name: {
+            type: String,
+        }
     },
-    description: {
-        type: String,
-        required: false,
-    },
-    url: {
-        type: String,
-        required: true,
-    },
-    category: {
-        type: String,
-        required: true,
-    },
-    language: {
-        type: String,
-        required: true,
-    },
-    country: {
-        type: String,
-        required: true,
-    },
+    author: String,
+    title: String,
+    description: String,
+    url: String,
+    urlToImage: String,
+    publishedAt: String,
+    content: String,
 });
 
 module.exports = NewsPost = mongoose.model('item', NewsPostSchema);

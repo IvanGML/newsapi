@@ -1,0 +1,25 @@
+<article *ngIf="newsItem" class="article">
+    <h2 class="article-header article-single">{{newsItem.description}}</h2>
+    <div class="article-content-wrapper article-single">
+        <div class="article-content-text">
+            <div class="article-info">
+                <p class="article-author">{{newsItem.author}}</p>
+                <p class="article-date">{{newsItem.publishedAt}}</p>
+            </div>
+            <p class="article-discription">{{newsItem.description}}</p>
+            <p class="article-text">{{newsItem.content}}</p>
+            <div class="article-controls-wrapper">
+                <a href={{newsItem.url}} class="article-link" target="_blank">Read more...</a>
+                <span>
+                    <button *ngIf="!isSingleArticle" class="article-button" (click)="editNews(newsItem)">open</button>
+                    <button *ngIf="isSingleArticle" class="article-button" (click)="goHome()">to home page</button>
+                    <!-- <button class="article-button article-button-delete">delete</button> -->
+                </span>
+            </div>
+        </div>
+        <div class="article-content-img">
+            <img src={{newsItem.urlToImage}}
+                 alt="{{newsItem.description}}" class="article-image">
+        </div>
+    </div>
+</article>

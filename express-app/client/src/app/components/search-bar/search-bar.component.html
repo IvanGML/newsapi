@@ -1,0 +1,23 @@
+<div class="controls">
+  <div class="search-input--wrapper">
+    <input type="text" class="input" id="search-input" placeholder="type to find news">
+    <button class="search-button" id="search-button">go</button>
+  </div>
+  <div class="wrapper-button">
+
+    <select class="source-selector" id="source-selector" name="source-selector">
+      <option value="all-sources">All sources</option>
+      <option value="BBC">BBC</option>
+      <option value="CNN">CNN</option>
+    </select>
+    <div class="wrapper-button-inner">
+      <div class="wrapper-checkbox">
+        <input type="checkbox" id="own-news" class="input-checkbox" (change)="onlyCreatedByMe($event)"/>
+        <label for="own-news">Only created by me</label>
+      </div>
+      <button id="button-add" class="button-add">
+        Add article
+      </button>
+    </div>
+  </div>
+</div>

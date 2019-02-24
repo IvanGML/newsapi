@@ -1,0 +1,14 @@
+<div>
+    <div class="source-wrapper">
+        <h2 class="source-header">{{sources}}</h2>
+    </div>
+    <div 
+        *ngIf="newsItemList"
+        class="result-list">
+        <app-article 
+            *ngFor="let newsItem of newsItemList"
+            [newsItem] = "newsItem"
+            >
+        </app-article>
+    </div>
+</div>

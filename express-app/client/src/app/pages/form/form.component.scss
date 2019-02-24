@@ -1,0 +1,86 @@
+
+/*****************
+form
+******************/
+
+.form {
+	width: 768px;
+	margin: 0 auto;
+	padding: 20px 30px;
+	display: flex;
+	color: #ffffff;
+}
+
+.form-container{
+	width: 50%;
+	&:first-child {
+		margin-right: 15px;
+	}
+	&:last-child {
+		margin-left: 15px;
+	}
+}
+
+.form-input,
+.form-textarea {
+	width: 100%;
+	height: 30px;
+	border-radius: 3px;
+	border: none;
+	outline: #3e3a6b;
+	background-color: #ebf2ff;
+}
+
+.form-textarea {
+	height: 100%;
+	min-height: 200px;
+}
+
+.form-input-container {
+	margin-bottom: 20px;
+}
+
+.form-textarea-container {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: stretch;
+}
+
+.form-input-label {
+	font-size: 18px;
+	margin-bottom: 10px;
+	display: inline-block;
+}
+
+.article-button-container {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.form-checkbox-container {
+	@extend .form-input-container;
+	display: flex;
+	justify-content: space-around;
+	.form-input-label {
+		margin-left: 10px;
+	}
+}
+
+.form-button {
+	text-transform: uppercase;
+	font-size: 14px;
+	background-color: #3ab2bd;
+	border: none;
+	font-weight: bold;
+	cursor: pointer;
+	display: inline-block;
+	padding: 5px 15px;
+	color: #ffffff;
+	&-delete {
+		background-color: #bd5d48;
+		color: #22244b;
+	}
+	margin: 0;
+	width: 100%;
+}

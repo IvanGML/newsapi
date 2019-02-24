@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="src/styles/normalize.css">
+    <link rel="shortcut icon" type="image/png" href="/frontend-pure-js/src/img/favicon.png"/>
+    <link rel="stylesheet" href="src/styles/index.css">
+    <link rel="stylesheet" href="src/styles/spinner.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&amp;subset=cyrillic" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="non-article-wrapper">
+            <div class="heading">
+                <h1 class="heading-title" id="heading-title">News Portal</h1>
+                <p class="heading-slogan">Are you missing what's important?</p>
+            </div>
+            <div class="controls">
+                <div class="search-input--wrapper">
+                    <input type="text" class="input" id="search-input" placeholder="type to find news">
+                    <button class="search-button" id="search-button">go</button>
+                </div>
+                <div class="button-wrapper">
+                    <button id="load-news-sources" class="button">
+                        News sources
+                    </button>
+                    <button id="load-articles" class="button">
+                        Load some articles
+                    </button>
+                </div>
+            </div>
+            <div class="spinner-wrapper" id="spinner-wrapper">
+                <div class="spinner">
+                    <div class="dot1"></div>
+                    <div class="dot2"></div>
+                </div>
+            </div>
+        </div>
+        <div id="result-list" class="result-list">
+            
+
+        </div>
+
+        <div class="footer-info">
+            <span class="footer-decor"></span>
+            <a href="https://newsapi.org/" class="link" target="_blank">powered by NewsAPI.org</a>
+        </div>
+    </div>
+    <div id="root"></div>
+    <script src="src/dist/bundle.js"></script>
+</body>
+</html>

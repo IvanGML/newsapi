@@ -32,7 +32,7 @@ export class NewsListComponent implements OnInit {
   }
 
   onlyCreatedByMe(event: boolean) {
-    if(event) this.newsItemList = this.newsItemList.filter(item => !!item._id !== event);
+    if(event) this.newsItemList = this.newsItemList.filter(item => !!item._id === event);
     else this.newsItemList = [...this.myNewsItemList, ...this.thirdPartyNewsItemList];
   }
 

@@ -11,6 +11,7 @@ import { OwnnewsService } from "../../sevices/ownnews.service";
 })
 export class SingleArticleComponent implements OnInit {
   @Input() newsItem: NewsItem;
+  allItems: NewsItem[] = this.allItems || [];
   newsId: string = '';
   param: any = '';
   isSingleArticle: boolean = true;
@@ -25,17 +26,16 @@ export class SingleArticleComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.newsapiService.getNewsList().subscribe(result => {
-      this.newsItem = result.articles.filter(item => item.source.id === this.param.id)[0];
-    });
+      this.allItems = [...this.allItems, ...result.articles];
+      this.newsItem = this.allItems.filter(item => item.source.id === this.param.id)[0];
+    })
+    this.ownnewsService.getNewsList().subscribe(result => {
+      this.allItems = [...this.allItems, ...result];
+      this.newsItem = this.allItems.filter(item => item.source.id === this.param.id)[0];
+    })
 
-
-    
-    // if (!this.newsItem) {
-    //   this.ownnewsService.getNewsList().subscribe(result => {
-    //     this.newsItem = result.filter(item => item.source.id === this.param.id)[0];
-    //   });
-    // }
   };
 
 }

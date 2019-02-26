@@ -9,8 +9,9 @@ import { NewsapiService } from "../../sevices/newsapi.service";
 })
 export class SearchBarComponent implements OnInit {
   @Output() isChecked: EventEmitter<boolean> = new EventEmitter();
+  @Output() id: EventEmitter<any> = new EventEmitter();
+  sourceId: string;
   sourcesList: any;
-
 
   constructor(
     private router: Router,
@@ -18,11 +19,17 @@ export class SearchBarComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    this.sourceId = 'all sources';
     this.newsapiService.getSourcesList().subscribe(result => {
       if(result && result.status === 'ok') {
         this.sourcesList = result.sources;
       }
     })
+  }
+
+  getId(id) {
+    this.sourceId = id;
+    this.id.emit(this.sourceId);
   }
 
   onlyCreatedByMe(event) {

@@ -1,4 +1,7 @@
 <div>
-  <app-search-bar (isChecked)="onlyCreatedByMe($event, isChecked)"></app-search-bar>
+  <app-search-bar 
+    (isChecked)="onlyCreatedByMe($event, isChecked)"
+    (id)="loadData($event, id)"
+    ></app-search-bar>
   <app-main [newsItemList]="newsItemList"></app-main>
 </div>

@@ -23,7 +23,7 @@ export class FormComponent implements OnInit {
     this.newsItem = {
       id: '',
       source: {
-        id: 'IvanSomau',
+        id: 'IvanSomau' + Date.now(),
         name: 'created by me',
       },
       author: '',

@@ -5,6 +5,17 @@
 	align-items: center;
 }
 
+.source-wrapper {
+	width: 100%;
+	text-align: center;
+	background: linear-gradient(270deg, #3e3a6b, #060f2c);
+	padding: 20px 0;
+}
+
+.source-header {
+	margin: 0;
+}
+
 .search-input--wrapper {
 	display: flex;
 }

@@ -1,4 +1,4 @@
-<div class="controls">
+<form class="controls">
   <div class="search-input--wrapper">
     <input type="text" class="input" id="search-input" placeholder="type to find news">
     <button class="search-button" id="search-button">go</button>
@@ -8,14 +8,14 @@
     <select 
       class="source-selector" 
       id="source-selector" 
+      (ngModelChange)="getId($event)"
       name="source-selector"
-      *ngIf="sourcesList">
+      [(ngModel)]="sourceId">
       <option 
         *ngFor="let source of sourcesList"
+        name="sourceItem"
+        (click)="onLoadData(source.id)"
         [value]="source.id">{{source.name}}</option>
-      <!-- <option value="all-sources">All sources</option>
-      <option value="BBC">BBC</option>
-      <option value="CNN">CNN</option> -->
     </select>
     <div class="wrapper-button-inner">
       <div class="wrapper-checkbox">
@@ -27,4 +27,7 @@
       </button>
     </div>
   </div>
+</form>
+<div class="source-wrapper">
+    <h2 class="source-header">{{sourceId}}</h2>
 </div>

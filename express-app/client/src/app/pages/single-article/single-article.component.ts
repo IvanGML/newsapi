@@ -27,6 +27,8 @@ export class SingleArticleComponent implements OnInit {
 
   ngOnInit() {
 
+    if(this.param.id === 'null') this.router.navigate(['/']);
+
     this.newsapiService.getNewsList().subscribe(result => {
       this.allItems = [...this.allItems, ...result.articles];
       this.newsItem = this.allItems.filter(item => item.source.id === this.param.id)[0];
@@ -37,5 +39,9 @@ export class SingleArticleComponent implements OnInit {
     })
 
   };
+
+  goHome() {
+    this.router.navigate(['/']);
+  }
 
 }

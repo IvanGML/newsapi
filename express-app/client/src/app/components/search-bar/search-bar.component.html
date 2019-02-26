@@ -5,10 +5,17 @@
   </div>
   <div class="wrapper-button">
 
-    <select class="source-selector" id="source-selector" name="source-selector">
-      <option value="all-sources">All sources</option>
+    <select 
+      class="source-selector" 
+      id="source-selector" 
+      name="source-selector"
+      *ngIf="sourcesList">
+      <option 
+        *ngFor="let source of sourcesList"
+        [value]="source.id">{{source.name}}</option>
+      <!-- <option value="all-sources">All sources</option>
       <option value="BBC">BBC</option>
-      <option value="CNN">CNN</option>
+      <option value="CNN">CNN</option> -->
     </select>
     <div class="wrapper-button-inner">
       <div class="wrapper-checkbox">

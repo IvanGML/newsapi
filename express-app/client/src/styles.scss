@@ -29,4 +29,18 @@ html, body {
 	background: linear-gradient(270deg, #060f2c, #3e3a6b);
 }
 
+.ng-valid[required], .ng-valid.required {
+	transition: all .3s;
+	border-left: 5px solid #42a948;
+}
+
+.ng-invalid:not(form) {
+	transition: all .3s;
+	border-left: 5px solid #a94442;
+}
+
+button[disabled] {
+	background-color: lightgray!important;
+}
+
 @import './styles/media.scss';

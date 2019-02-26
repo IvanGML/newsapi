@@ -15,7 +15,7 @@
         <input type="checkbox" id="own-news" class="input-checkbox" (change)="onlyCreatedByMe($event)"/>
         <label for="own-news">Only created by me</label>
       </div>
-      <button id="button-add" class="button-add">
+      <button id="button-add" class="button-add" (click)="addArticle()">
         Add article
       </button>
     </div>

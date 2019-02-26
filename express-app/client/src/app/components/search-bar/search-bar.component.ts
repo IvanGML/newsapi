@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-bar',
@@ -8,13 +9,16 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class SearchBarComponent implements OnInit {
   @Output() isChecked: EventEmitter<boolean> = new EventEmitter();
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() { }
 
   onlyCreatedByMe(event) {
     this.isChecked.emit(event.target.checked);
-    // console.log('checked', this.isChecked);
+  }
+
+  addArticle() {
+    this.router.navigate(['/add-news']);
   }
 
 }

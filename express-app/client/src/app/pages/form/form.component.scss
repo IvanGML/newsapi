@@ -1,21 +1,26 @@
-
 /*****************
 form
 ******************/
 
+:host {
+  	width: 100%;
+}
+
 .form {
-	width: 768px;
+	width: 100%;
 	margin: 0 auto;
 	padding: 20px 30px;
 	display: flex;
 	color: #ffffff;
 }
 
-.form-container{
-	width: 50%;
+.form-container {
+  	width: 50%;
+
 	&:first-child {
 		margin-right: 15px;
 	}
+
 	&:last-child {
 		margin-left: 15px;
 	}
@@ -26,7 +31,9 @@ form
 	width: 100%;
 	height: 30px;
 	border-radius: 3px;
-	border: none;
+	border-top: transparent;
+	border-right: transparent;
+	border-bottom: transparent;
 	outline: #3e3a6b;
 	background-color: #ebf2ff;
 }
@@ -37,7 +44,7 @@ form
 }
 
 .form-input-container {
-	margin-bottom: 20px;
+  	margin-bottom: 20px;
 }
 
 .form-textarea-container {
@@ -62,6 +69,7 @@ form
 	@extend .form-input-container;
 	display: flex;
 	justify-content: space-around;
+
 	.form-input-label {
 		margin-left: 10px;
 	}
@@ -77,10 +85,22 @@ form
 	display: inline-block;
 	padding: 5px 15px;
 	color: #ffffff;
+
 	&-delete {
 		background-color: #bd5d48;
 		color: #22244b;
 	}
+
 	margin: 0;
 	width: 100%;
+}
+
+@media (max-width: 768px) {
+
+	.form-container:first-child,
+	.form-container:last-child {
+		margin: 25px 0 0 0;
+		width: 100%;
+		padding: 0 20px;
+	}
 }

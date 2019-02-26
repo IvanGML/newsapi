@@ -26,4 +26,8 @@ export class OwnnewsService {
   addNews(newPost: NewsItem): Observable<NewsItem[]> {
     return this.http.post<NewsItem[]>(this.NewsItemsUrl, newPost, httpOptions);
   }
+  // Delete news
+  deleteNews(newPost: NewsItem): Observable<NewsItem[]> {
+    return this.http.delete<NewsItem[]>(this.NewsItemsUrl + newPost._id, httpOptions);
+  }
 }

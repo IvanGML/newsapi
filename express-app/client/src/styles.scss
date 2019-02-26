@@ -40,6 +40,7 @@ html, body {
 }
 
 button[disabled] {
+	cursor: default!important;
 	background-color: lightgray!important;
 }
 

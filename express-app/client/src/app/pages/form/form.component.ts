@@ -1,18 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsItem } from '../../modeles/news-item.model';
 import { Router } from '@angular/router';
+import { OwnnewsService } from "../../sevices/ownnews.service";
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
+
 export class FormComponent implements OnInit {
   newsItem: NewsItem[];
   formSubmitted: boolean;
 
-  constructor(private router: Router) { }
-
+  constructor(
+    private router: Router,
+    private ownnewsService: OwnnewsService
+  ) { }
 
   ngOnInit() {
     this.formSubmitted = false;
@@ -35,6 +39,10 @@ export class FormComponent implements OnInit {
 
   save() {
     console.log(this.newsItem);
+    this.ownnewsService.addNews(this.newsItem).subscribe(result => {
+      alert(`News post successfuly added.`);
+      this.router.navigate(['/']);
+    });
   }
 
   toHome() {
@@ -44,8 +52,6 @@ export class FormComponent implements OnInit {
 
   onSubmitted() {
     this.formSubmitted = true;
-    console.log('submitted', this.formSubmitted);
   }
-
 
 }

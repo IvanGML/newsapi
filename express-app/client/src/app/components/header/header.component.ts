@@ -15,7 +15,11 @@ export class HeaderComponent implements OnInit {
   }
 
   goHome() {
-    this.router.navigate(['/']);
+    if(this.router.url==="/add-news") {
+      let isCancel = confirm('Are you sure?');
+      if (isCancel) this.router.navigate(['/']);
+    } else {
+      this.router.navigate(['/']);
+    }
   }
-
 }

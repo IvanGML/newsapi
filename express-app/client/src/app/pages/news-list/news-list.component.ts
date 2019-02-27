@@ -9,9 +9,10 @@ import { OwnnewsService } from "../../sevices/ownnews.service";
   styleUrls: ['./news-list.component.scss']
 })
 export class NewsListComponent implements OnInit {
-  myNewsItemList: NewsItem[] = this.myNewsItemList || [];
-  thirdPartyNewsItemList: NewsItem[] = this.thirdPartyNewsItemList || [];
-  newsItemList: NewsItem[] = this.newsItemList || [];
+  myNewsItemList: any = this.myNewsItemList || [];
+  thirdPartyNewsItemList: any = this.thirdPartyNewsItemList || [];
+  newsItemList: any = this.newsItemList || [];
+  // @Input() onLoadData: any = this.loadData;
 
   constructor(
     private newsapiService: NewsapiService,
@@ -19,21 +20,24 @@ export class NewsListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
-    this.newsapiService.getNewsList().subscribe(result => {
-      result = result.articles.filter(item => item.source.id);
-      this.thirdPartyNewsItemList = result;
-      this.newsItemList = [...this.myNewsItemList, ...this.thirdPartyNewsItemList];
-    });
-    this.ownnewsService.getNewsList().subscribe(result => {
-      this.myNewsItemList = result;
-      this.newsItemList = [...this.myNewsItemList, ...this.thirdPartyNewsItemList];
-    });
+    this.loadData(null);
   }
 
   onlyCreatedByMe(event: boolean) {
-    if(event) this.newsItemList = this.newsItemList.filter(item => !!item._id !== event);
-    else this.newsItemList = [...this.myNewsItemList, ...this.thirdPartyNewsItemList];
+    if(event) this.newsItemList = this.newsItemList.filter(item => !!item._id === event);
+    else this.newsItemList = [...this.thirdPartyNewsItemList, ...this.myNewsItemList];
+  }
+
+  loadData(id) {
+    this.newsapiService.getNewsList(id).subscribe(result => {
+      result = result.articles.filter(item => item.source.id);
+      this.thirdPartyNewsItemList = result;
+      this.newsItemList = [...this.thirdPartyNewsItemList, ...this.myNewsItemList];
+    });
+    this.ownnewsService.getNewsList().subscribe(result => {
+      this.myNewsItemList = result;
+      this.newsItemList = [...this.thirdPartyNewsItemList, ...this.myNewsItemList];
+    });
   }
 
 }

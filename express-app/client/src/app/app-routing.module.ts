@@ -6,6 +6,7 @@ import { FormComponent } from "./pages/form/form.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'news', pathMatch: 'full' },
+  { path: 'add-news', component: FormComponent },
   { path: 'news', component: NewsListComponent },
   { path: 'news/:id', component: SingleArticleComponent },
   { path: 'news/:id/edit', component: FormComponent },

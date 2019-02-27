@@ -4,7 +4,7 @@ interface NewsSource {
 }
 
 export interface NewsItem {
-    id: string,
+    _id: string,
     source: NewsSource,
     author: string,
     content: string,

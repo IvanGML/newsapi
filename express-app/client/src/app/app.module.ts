@@ -8,6 +8,7 @@ import { ComponentsModule } from "./components/components.module";
 import { NewsListComponent } from './pages/news-list/news-list.component';
 import { FormComponent } from './pages/form/form.component';
 import { SingleArticleComponent } from './pages/single-article/single-article.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { SingleArticleComponent } from './pages/single-article/single-article.co
     AppRoutingModule,
     ComponentsModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

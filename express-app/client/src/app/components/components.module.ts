@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -18,7 +19,9 @@ import { SpinnerComponent } from './spinner/spinner.component';
     SpinnerComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
   exports: [
     HeaderComponent,

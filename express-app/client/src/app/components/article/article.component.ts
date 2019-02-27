@@ -26,7 +26,9 @@ export class ArticleComponent implements OnInit {
     this.router.navigate(['./news/' + newsItemId]);
   }
 
-  edit() {}
+  edit() {
+    alert('this functionality is not yet implemented');
+  }
 
   delete(newsItem) {
     console.log('newsItem', newsItem);
